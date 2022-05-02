@@ -4,6 +4,7 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import os
 import re
+import shutil
 
 
 def break_down(file):
@@ -86,6 +87,8 @@ def replace_text_file(file, old_text, new_text):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    shutil.rmtree(os.getcwd() + "\\keywords_output", ignore_errors=True)
+    os.makedirs(os.getcwd() + "\\keywords_output")
     pages = os.listdir(os.getcwd() + "\\keyword_input")
     for page in pages:
         break_down(page)
