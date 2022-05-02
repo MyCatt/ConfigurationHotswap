@@ -15,11 +15,11 @@ def replace_text(string, old_text, new_text):
 # replace occurance of text in file
 def replace_text_file(file, old_text, new_text):
     print(file)
-    f = open(os.getcwd() + "\\tests\\"+file)
+    f = open(os.getcwd() + "\\tests_input\\"+file)
     i = 0
-    shutil.rmtree(os.getcwd() + "\\tests_new", ignore_errors=True)
-    os.makedirs(os.getcwd() +  "\\tests_new")
-    out = open(os.getcwd() + "\\tests_new\\"+file, 'a')
+    shutil.rmtree(os.getcwd() + "\\tests_output", ignore_errors=True)
+    os.makedirs(os.getcwd() +  "\\tests_output")
+    out = open(os.getcwd() + "\\tests_output\\"+file, 'a')
     for line in f:
         i = i + 1
         #print(i)
@@ -28,7 +28,7 @@ def replace_text_file(file, old_text, new_text):
         out.write(replace_text(line, old_text, new_text)+"\n")
     f.close()
     out.close()
-    shutil.copy(os.getcwd() + "\\tests_new\\"+file, os.getcwd() + "\\tests\\"+file)
+    shutil.copy(os.getcwd() + "\\tests_output\\"+file, os.getcwd() + "\\tests_input\\"+file)
 
 def get_mapper(file, testsDir):
     pages = os.listdir(testsDir)
@@ -44,5 +44,5 @@ def get_mapper(file, testsDir):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    get_mapper('mapper.txt', os.getcwd() + "\\tests")
+    get_mapper('mapper.txt', os.getcwd() + "\\tests_input")
 
