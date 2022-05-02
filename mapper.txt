@@ -1,0 +1,16 @@
+Add Vendor Address:Vendor - Add Address
+Miscellaneous details:Vendor - Add Miscellaneous Details
+Vendor Profile:Vendor - Add Profile Details
+Vendor Purchasing demographics values:Vendor - Add Purchasing demographics
+Vendor Invoice and delivery values:Vendor - Add Invoice and delivery
+Purchase order defaults:Vendor - Add Purchase order defaults
+Payments:Vendor - Add Payments
+Add Vendor Bank Account:Vendor - Add Bank Account
+Payment Details:Vendor - Add Payment Details
+Template Parameter:Vendor - Create Template
+Contact Details:Vendor - Create Contact
+Hold Details:Vendor - Put On Hold
+Bank Account:Vendor - Update Bank Account
+Agreement Header:Vendor - Open Trade Agreement
+Agreement Details:Vendor - Edit Trade Agreement
+Vendor values:Vendor - Create Vendor Using Template
