@@ -25,7 +25,11 @@ def break_down(file):
                 if len(line) <= 1:
                     is_component = False
                     #continue
-                line = replace_text_re(line, 'Website Interaction From Configuration.*', component_name)
+                line = replace_text_re(
+                    line,
+                    '(?<=((?<=Comment    Default)|(?<=Default))    Set Configuration Actions    ).*?(?=(    |$|\n))',
+                    component_name)
+                line = replace_text_re_old(line, 'Website Interaction From Configuration.*', component_name)
                 # replace_line(file, line_number, "    "+line)
                 #print(" "*3, line)
             elif len(line) <= 1:
@@ -54,6 +58,16 @@ def get_after(string, after):
     return string[string.find(after) + len(after):]
 
 def replace_text_re(line, regex, replace):
+    if re.search(regex, line):
+        #old_name = get_after(line, 'Website Interaction From Configuration    ')
+        #print(old_name+':'+replace)
+        #out_file = open(os.getcwd() + '\\mapper.txt', 'a')
+        #out_file.write(old_name+':'+replace + "\n")
+        #return re.sub(regex, 'Website Interaction Preview    '+replace, line)
+        return re.sub(regex, replace, line)
+    return line
+
+def replace_text_re_old(line, regex, replace):
     if re.search(regex, line):
         old_name = get_after(line, 'Website Interaction From Configuration    ')
         #print(old_name+':'+replace)
@@ -91,5 +105,6 @@ if __name__ == '__main__':
     os.makedirs(os.getcwd() + "\\keywords_output")
     pages = os.listdir(os.getcwd() + "\\keyword_input")
     for page in pages:
+        print(page)
         break_down(page)
 
